@@ -34,8 +34,12 @@ public class ApplicationUserController {
 
 
     @PostMapping("/signup")
-    public RedirectView postSignUp(@RequestParam(value="username") String username, @RequestParam(value="password") String password, @RequestParam(value="firstName") String firstName,
-                                   @RequestParam(value="lastName") String lastName, @RequestParam(value="dateOfBirth") String dateOfBirth, @RequestParam(value="bio") String bio){
+    public RedirectView signup(@RequestParam String username,
+                               @RequestParam String password,
+                               @RequestParam String firstName,
+                               @RequestParam String lastName,
+                               @RequestParam String dateOfBirth,
+                               @RequestParam String bio){
 
         ApplicationUser newUser = new ApplicationUser(username,passwordEncoder.encode(password),firstName,lastName,dateOfBirth,bio);
         newUser = applicationUserRepository.save(newUser);
@@ -57,7 +61,7 @@ public class ApplicationUserController {
     }
     @GetMapping("/login")
     public String getLogin(){
-        return "Login";
+        return "/login";
     }
 
 }

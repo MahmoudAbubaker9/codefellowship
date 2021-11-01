@@ -1,0 +1,16 @@
+body{
+margin: 20px 15%% 20px 15%;
+background-color: coral;
+
+}
+
+h1, h2,p {
+display: block;
+text-align: center;
+text-decoration: none;
+}
+
+form{
+text-align: center;
+
+}

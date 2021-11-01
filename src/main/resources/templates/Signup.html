@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SignUp Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div th:replace="NavBar :: nav"></div>
+
+<h1>SignUp Page</h1>
+<p>Please fill in all the information to register with the application</p>
+<br>
+<form method="POST" action="/signup">
+    <label for="username">User name: </label>
+    <input id="username" name="username" type="text">
+    <br>
+    <label for="password">password: </label>
+    <input id="password" name="password" type="text">
+    <br>
+    <label for="firstName">First Name: </label>
+    <input id="firstName" name="firstName" type="text">
+    <br>
+    <label for="lastName">Last Name: </label>
+    <input id="lastName" name="lastName" type="text">
+    <br>
+    <label for="dateOfBirth">Date Of Birth: </label>
+    <input id="dateOfBirth" name="dateOfBirth" type="datetime-local">
+    <br>
+    <label for="bio">Bio: </label>
+    <input id="bio" name="bio" type="text">
+    <br>
+    <button type="submit">Register</button>
+</form>
+
+</body>
+</html>

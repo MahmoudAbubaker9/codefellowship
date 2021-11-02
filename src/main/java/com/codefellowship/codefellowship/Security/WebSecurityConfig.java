@@ -48,7 +48,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/", true)
                 .failureUrl("/login")
                 .and()
-                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login");
+                .logout()
+                .logoutUrl("/perform_logout")
+                .logoutSuccessUrl("/")
+                .deleteCookies("JSESSIONID");
+
 
     }
 }

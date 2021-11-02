@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div th:replace="NavBar :: nav"></div>
+
+<div class="cont">
+    <form method="POST" action="/addPost">
+        <br>
+        <label for="body">Add a comment from here: </label>
+        <br>
+        <label>
+            <textarea id="body" name="body" cols="60"> </textarea>
+        </label>
+        <br>
+        <label>
+            <button id="button" type="submit">Post</button>
+        </label>
+    </form>
+</div>
+
+<div class="cont" th:if="${! posts.isEmpty()}">
+    <h4>Your Posts</h4>
+    <br>
+    <div th:each="post : ${posts}">
+        <p><span th:text=${post.body}></span></p>
+        <br>
+        <p>Created At: <span th:text=${post.createdAt}></span></p>
+        <hr>
+    </div>
+</div>
+<div th:unless="${! posts.isEmpty()}">
+    <h4>There is no post right now, all your post will be displayed here</h4>
+</div>
+
+
+</body>
+</html>

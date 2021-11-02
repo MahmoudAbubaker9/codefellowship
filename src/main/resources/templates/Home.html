@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>codefellowship</title>
@@ -10,16 +11,17 @@
 
 <div th:replace="NavBar :: nav"></div>
 
+
 <div class="container">
-
+    <br>
+    <img src="https://avatars.githubusercontent.com/u/3904529?s=200&v=4" alt="user's image">
+    <br>
     <h1>Welcome to Code Fellowship App.</h1>
-
-  <p>App that allows people to learn programming to connect with each other and support each other on their coding journeys.
-
-    <p/>
-</div>
-
+    <br>
+  <p>App that allows people to learn programming to connect with each other and support each other on their coding journeys<p/>
 
 </div>
+</div>
+
 </body>
 </html>

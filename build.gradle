@@ -21,7 +21,11 @@ dependencies {
 	runtimeOnly 'org.postgresql:postgresql'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+	implementation 'org.hibernate:hibernate-java8:5.1.0.Final'
+
 }
+
+
 
 test {
 	useJUnitPlatform()

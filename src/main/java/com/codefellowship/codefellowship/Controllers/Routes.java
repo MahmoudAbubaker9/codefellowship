@@ -12,20 +12,7 @@ public class Routes {
     ApplicationUserRepository applicationUserRepository;
 
     @GetMapping("/")
-    public String getRoot(){
+    public String getRoot() {
         return "Home";
     }
-
-//    @GetMapping("/signup")
-//    public String getSignupPage(){
-//
-//        return "Signup";
-//    }
-//
-//    @GetMapping("/login")
-//    public String getLoginPage(){
-//
-//        return "Login";
-//    }
-
 }

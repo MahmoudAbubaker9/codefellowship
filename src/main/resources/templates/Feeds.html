@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div th:replace="NavBar :: nav"></div>
+
+<h2>Post for the user are you following</h2>
+
+<div class="cont" th:each="posts : ${postsOfUsers}">
+    <div th:if="${! posts.isEmpty()}">
+        <a th:href="@{/users/{id}(id= ${posts[0].user.id})}">
+            <h3>Posts By <span th:text=${posts[0].user.username}></span>: </h3>
+        </a>
+        <div class="post" th:each="post : ${posts}">
+            <p>Body: <span th:text=${post.body}></span></p>
+            <p class="crated">Created At: <span th:text=${post.createdAt}></span></p>
+            <br>
+        </div>
+        <hr>
+    </div>
+</div>
+
+</body>
+</html>

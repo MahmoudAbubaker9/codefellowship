@@ -11,6 +11,5 @@ import java.util.Optional;
 
 @Repository
 public interface PostRepository extends JpaRepository<PostModel, Long> {
-    Optional< List<PostModel> > findAllByUserUsername(String username);
-    Optional< List<PostModel> > findAllByUserId(Long id);
+    List<PostModel> findAllByUserId(long user_id);
 }

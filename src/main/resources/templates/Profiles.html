@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="styleProfile.css">
+</head>
+<body>
+
+<div th:replace="NavBar :: nav"></div>
+
+<div class="cont">
+    <div th:if="${isSameUser == false && isFollowed == false }">
+        <form method="POST" th:action="@{/followUser/{username}(username = ${user.username})}">
+            <input id="button_follow1" type="submit" value="Follow">
+        </form>
+    </div>
+    <div th:if="${isSameUser == false && isFollowed == true }">
+        <form method="POST" th:action="@{/unfollowUser/{username}(username = ${user.username})}">
+            <input id="button_follow" type="submit" value="UnFollow">
+        </form>
+    </div>
+
+
+    <div th:if="${user != null}">
+        <br>
+        <p><img src="https://www.pngall.com/wp-content/uploads/5/Profile-PNG-Clipart.png" alt="ProfilePicture" width="150" height="150"> </p>
+        <br>
+        <p>Username: <span th:text=${user.username}></span></p>
+        <br>
+        <p>First Name: <span th:text=${user.firstName}></span></p>
+        <br>
+        <p>Last Name: <span th:text=${user.lastName}></span></p>
+        <br>
+        <p>Date Of Birth: <span th:text=${user.dateOfBirth}></span></p>
+        <br>
+        <p>Bio: <span th:text=${user.bio}></span></p>
+    </div>
+    <div th:unless="${user != null}">
+        <h2>There is no user with this ID</h2>
+    </div>
+</div>
+
+</body>
+</html>

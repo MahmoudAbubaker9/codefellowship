@@ -19,16 +19,16 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <li sec:authorize="isAuthenticated()" class="nav-item">
                 <a class="nav-link" href="/myprofile">Profile</a>
             </li>
-            <li class="nav-item">
+            <li sec:authorize="isAuthenticated()" class="nav-item">
                 <a class="nav-link" href="/profile">Post</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/users/1">other user</a>
+            <li sec:authorize="isAuthenticated()" class="nav-item">
+                <a class="nav-link" href="/users/1">Users</a>
             </li>
-            <li class="nav-item">
+            <li sec:authorize="isAuthenticated()" class="nav-item">
                 <a class="nav-link" href="/feed">Feed</a>
             </li>
 
@@ -41,6 +41,10 @@
             <li sec:authorize="isAuthenticated()" class="nav-item">
                 <a class="nav-link" href="/perform_logout">Log Out</a>
             </li>
+            <li sec:authorize="isAuthenticated()" class="nav-item">
+                <h5>Welcome <span th:text=${username}></span> </h5>
+            </li>
+
 
             </li >
         </ul>

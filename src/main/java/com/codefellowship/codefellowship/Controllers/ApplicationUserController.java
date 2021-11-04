@@ -38,7 +38,9 @@ public class ApplicationUserController {
 
     /// Home Page
     @GetMapping("/")
-    public String getRoot() {
+    public String getRoot(Principal p,Model m) {
+            if(p != null)
+                m.addAttribute("username",p.getName());
         return "Home";
     }
 
@@ -119,12 +121,11 @@ public class ApplicationUserController {
 
     /// Post Page
     @PostMapping("/addPost")
-    public RedirectView createPost(Principal principal, String body){
+    public RedirectView createPost(Principal principal, String body,Model model){
         String username = principal.getName();
         ApplicationUser user = applicationUserRepository.findUserByUsername(username);
         PostModel newPost = new PostModel(body,user);
         postRepository.save(newPost);
-
         return new RedirectView("/profile");
     }
 
